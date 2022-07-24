@@ -17,6 +17,10 @@ public class Main{
         if(word.endsWith("a")){
             firstDeclension(word);
         }
+        else if(word.endsWith("us")){
+            secondDeclensionM(word);
+        }
+        
 
     }
 
@@ -25,7 +29,25 @@ public class Main{
         String endings[] = {"a", "ae", "ae", "am", "ā", "a", "ae", "ārum", "īs", "ās", "īs","ae"};
         String decName[] = {"Nom.", "Gem.", "Dat.", "Acc.", "Abl.", "Voc.", "Nom.", "Gen.", "Dat.", "Acc.", "Abl.","Voc."};
 
+        printTable(stem, endings, decName);
+    }
+    
+    public static void secondDeclensionM(String word){
+        String stem =  word.substring(0,word.length()-2);
+        String endings[] = {"us", "ī", "ō", "um", "ō", "e", "ī", "ōrum", "īs", "ōs", "īs","ī"};
+        String decName[] = {"Nom.", "Gem.", "Dat.", "Acc.", "Abl.", "Voc.", "Nom.", "Gen.", "Dat.", "Acc.", "Abl.","Voc."};
 
+        printTable(stem, endings, decName);
+    }
+    public static void secondDeclensionN(String word){
+        String stem =  word.substring(0,word.length()-2);
+        String endings[] = {"um", "ī", "ō", "um", "ō", "e", "a", "ōrum", "īs", "a", "īs","a"};
+        String decName[] = {"Nom.", "Gem.", "Dat.", "Acc.", "Abl.", "Voc.", "Nom.", "Gen.", "Dat.", "Acc.", "Abl.","Voc."};
+
+        printTable(stem, endings, decName);
+    }
+    
+    public static void printTable(String stem, String[] endings, String[] decName){
         for(int i = 0; i < 12; i++){
             if(i == 0){
                 System.out.println("SINGULAR");
@@ -37,5 +59,5 @@ public class Main{
             System.out.println("\t" + decName[i] + ": " + stem + endings[i]);
         }
     }
-}
 
+}
